@@ -1,0 +1,5 @@
+const ramadan = {
+  targetDate: "2027-02-08T00:00:00",
+};
+
+export { ramadan };
