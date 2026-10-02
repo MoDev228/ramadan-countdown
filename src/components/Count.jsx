@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ramadan } from "@/data/ramadan";
 import { convertSeconds } from "../utils/countdown";
+import CountdownUnit from "./CountdownUnit";
 
 function Count() {
   const [countdown, setCountdown] = useState({
@@ -40,12 +41,16 @@ function Count() {
     };
   }, []);
   return (
-    <>
-      <p className="text-white">Jour : {countdown.days}</p>
-      <p className="text-white">Heures : {countdown.hours}</p>
-      <p className="text-white">Minutes : {countdown.minutes}</p>
-      <p className="text-white">Secondes : {countdown.seconds}</p>
-    </>
+    <div className="flex justify-center items-center flex-wrap  gap-[clamp(0.75rem,2vw,1.5rem)] ">
+      <CountdownUnit value={countdown.days} label="Jours" />
+      <CountdownUnit value={countdown.hours} label="Heures" />
+      <CountdownUnit value={countdown.minutes} label="Minutes" />
+      <CountdownUnit
+        valueClassName="text-yellow-300"
+        value={countdown.seconds}
+        label="Secondes"
+      />
+    </div>
   );
 }
 
